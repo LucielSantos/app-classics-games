@@ -7,12 +7,12 @@ import {
 
 import { Home } from './models'
 
-//import Routes from './routes'
+import Routes from './routes'
 
 export default function App () {
   return (
     <>
-      <Home />
+      <Routes />
     </>
   );
 };
