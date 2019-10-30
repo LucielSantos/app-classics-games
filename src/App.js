@@ -5,12 +5,12 @@ import {
   StatusBar,
 } from 'react-native';
 
-import { Main } from './models/Main'
+import Routes from './routes'
 
 export default function App () {
   return (
     <>
-      <Main />
+      <Routes />
     </>
   );
 };

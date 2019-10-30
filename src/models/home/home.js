@@ -4,10 +4,11 @@ import {
   Text,
 } from 'react-native';
 
-export const Main = () => {
+export const Home = () => {
   return (
     <View>
-      <Text>Main Page</Text>
+      <Text>Home Page</Text>
+      <Text>TOUCH HERE</Text>
     </View>
   );
 }
