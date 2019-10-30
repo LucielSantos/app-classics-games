@@ -5,12 +5,19 @@ import {
   Button
 } from 'react-native';
 
+import styles from './home.styles'
+
+import { Header } from '../../components'
+
 export const Home = ({
   navigation
 }) => {
   return (
-    <View>
-      <Text>Home Page</Text>
+    <View style={ styles.container }>
+      <Header
+        title='Jogos Para Jogar com a Galera!!!'
+      />
+
       <Button
         title='TOUCH HERE'
         onPress={() => navigation.navigate('TicTacToe')}
