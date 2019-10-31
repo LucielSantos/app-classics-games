@@ -11,7 +11,7 @@ export const Header = ({
   return (
     <View style={ styles.containerHeader }>
       {leftIcon}
-      <Text style={ styles.textHeader }>{title}</Text>
+      <Text style={ styles.textHeader }>{title.toUpperCase()}</Text>
       {rightIcon}
     </View>
   );
@@ -19,13 +19,14 @@ export const Header = ({
 
 const styles = StyleSheet.create({
   containerHeader:{
-    height: 40,
+    height: 70,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#0080ff',
-    marginBottom: 20,
+    backgroundColor: '#303030',
     elevation: 7,
     flexDirection: 'row',
+    borderBottomLeftRadius:10,
+    borderBottomRightRadius:10,
   },
   textHeader:{
     fontSize: 16,

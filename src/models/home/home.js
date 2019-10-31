@@ -7,7 +7,7 @@ import {
 
 import styles from './home.styles'
 
-import { Header } from '../../components'
+import { Header, ButtonHome, Separator } from '../../components'
 
 export const Home = ({
   navigation
@@ -17,11 +17,20 @@ export const Home = ({
       <Header
         title='Jogos Para Jogar com a Galera!!!'
       />
+      <View style={ styles.body }>
 
-      <Button
-        title='TOUCH HERE'
+
+      <ButtonHome
+        title='Jogo da Velha'
         onPress={() => navigation.navigate('TicTacToe')}
-      />
+        />
+
+        <Separator color='#878787'/>
+      <ButtonHome
+        title='Stop'
+        onPress={() => navigation.navigate('TicTacToe')}
+        />
+      </View>
     </View>
   );
 }
