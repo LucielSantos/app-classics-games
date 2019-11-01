@@ -19,16 +19,16 @@ export const Home = ({
         title='Jogos Para Jogar com a Galera!!!'
       />
       <View style={ styles.body }>
-
-      <ButtonHome
-        title='Jogo da Velha'
-        onPress={() => navigation.navigate('TicTacToe')}
+        <ButtonHome
+          title='Jogo da Velha'
+          onPress={() => navigation.navigate('TicTacToe')}
         />
-
+        
         <Separator color='#878787'/>
-      <ButtonHome
-        title='Stop'
-        onPress={() => navigation.navigate('TicTacToe')}
+        
+        <ButtonHome
+          title='Stop'
+          onPress={() => navigation.navigate('Stop')}
         />
       </View>
     </View>
