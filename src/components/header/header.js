@@ -32,5 +32,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: 'white',
+    fontFamily: 'McLaren-Regular'
   }
 })
