@@ -2,17 +2,14 @@ import React from 'react';
 
 import {
   SafeAreaView,
-  StatusBar,
 } from 'react-native';
-
-import { Home } from './models'
 
 import Routes from './routes'
 
 export default function App () {
   return (
-    <>
+    <SafeAreaView style={{ flex: 1 }}>
       <Routes />
-    </>
+    </SafeAreaView>
   );
 };
