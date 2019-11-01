@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
   textHeader:{
     fontSize: 16,
-    fontWeight: 'bold',
+    fontFamily: 'McLaren-Regular',
     color: 'white',
   }
 })

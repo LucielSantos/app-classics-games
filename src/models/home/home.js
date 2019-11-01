@@ -2,7 +2,8 @@ import React from 'react';
 import {
   View,
   Text,
-  Button
+  Button,
+  Image,
 } from 'react-native';
 
 import styles from './home.styles'
@@ -18,7 +19,6 @@ export const Home = ({
         title='Jogos Para Jogar com a Galera!!!'
       />
       <View style={ styles.body }>
-
 
       <ButtonHome
         title='Jogo da Velha'
