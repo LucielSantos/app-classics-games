@@ -4,10 +4,19 @@ import {
   StyleSheet,
 } from 'react-native';
 
-export const SplashScreen = () => {
+import LottieView from 'lottie-react-native'
+
+export const SplashScreen = ({navigation}) => {
+  const handleFinish = () => navigation.navigate('Home')
   return (
     <View style={styles.container}>
-
+      <LottieView
+        autoPlay
+        speed={1.3}
+        loop={false}
+        onAnimationFinish={handleFinish}
+        source={require('../../assets/animations/react.json')}
+      />
     </View>
   );
 }
@@ -15,6 +24,8 @@ export const SplashScreen = () => {
 const styles = StyleSheet.create({
   container:{
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: 'black',
   }
 })
