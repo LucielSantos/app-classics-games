@@ -4,12 +4,43 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
+  ActivityIndicator
 } from 'react-native';
+
+import {alphabet, times} from '../../utils'
 
 export const Stop = ({navigation}) => {
 
+  const [position, setPosition] = useState(0);
+  const [start, setStart] = useState(false);
+  const [loop, setLoop] = useState();
 
+  const handleChangeStart =() => {
+    console.log(start)
+    setStart(!start)
+  }
 
+  useEffect(() => {
+    if(start){
+      setPosition(0)
+      let n = 0
+      setLoop(
+        setInterval(() => {
+          if(n === 26) n = 0
+
+          setPosition(n)
+          n++
+        },times[Math.floor(Math.random() * 27)])
+      )
+    }else{
+      clearInterval(loop)
+    }
+  },[start])
+
+  useEffect(() => {
+    console.log(position)
+  }, [position])
+  
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -26,14 +57,17 @@ export const Stop = ({navigation}) => {
         <Text style={styles.titleBody}>Letra Selecionada:</Text>
         
         <View style={styles.containerLetter}>
-
-          <Text style={styles.letter}>A</Text>
+          {
+            start
+            ? <ActivityIndicator size={80} color='#0084d1'/>
+            : <Text style={styles.letter}>{alphabet[position]}</Text>
+          }
         </View>
       </View>
 
       <View style={styles.footer}>
         <View  style={styles.containerButton}>
-          <TouchableOpacity style={styles.buttonStart}>
+          <TouchableOpacity value={start} onPress={handleChangeStart} style={styles.buttonStart}>
             <Text style={styles.textButton}>Start</Text>
           </TouchableOpacity>
         </View>
