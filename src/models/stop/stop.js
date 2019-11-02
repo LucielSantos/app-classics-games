@@ -19,6 +19,8 @@ export const Stop = ({navigation}) => {
 
   const handleChangeStart =() => setStart(!start)
 
+  const handleBack = () => navigation.goBack()
+
   useEffect(() => {
     if(start){
       setPosition(0)
@@ -39,8 +41,8 @@ export const Stop = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.textButton} onPress={()=> navigation.goBack()}>Sair</Text>
+        <TouchableOpacity style={styles.button} onPress={handleBack}>
+          <Text style={styles.textButton}>Sair</Text>
         </TouchableOpacity>
         
         <TouchableOpacity style={styles.button}>

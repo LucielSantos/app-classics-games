@@ -16,7 +16,7 @@ export default createAppContainer(
     },
     {
       headerMode: 'none',
-      initialRouteName: 'Stop'
+      initialRouteName: 'Home'
     }
   )
 )
