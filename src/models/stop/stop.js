@@ -23,15 +23,15 @@ export const Stop = ({navigation}) => {
 
   useEffect(() => {
     if(start){
+      setPosition(0)
       let n = 0
-      let p = Math.floor(Math.random() * 7)
       setLoop(
         setInterval(() => {
           if(n === 26) n = 0
 
           setPosition(n)
           n++
-        },times[p])
+        },times[Math.floor(Math.random() * 6)])
       )
     }else{
       clearInterval(loop)
