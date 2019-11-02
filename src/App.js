@@ -4,12 +4,14 @@ import {
   SafeAreaView,
 } from 'react-native';
 
-import Routes from './routes'
+// import Routes from './routes'
+import { TicTacToe } from './models'
 
 export default function App () {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <Routes />
+      {/* <Routes /> */}
+      <TicTacToe />
     </SafeAreaView>
   );
 };
