@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -6,12 +6,15 @@ import {
   StyleSheet,
 } from 'react-native';
 
-export const Stop = () => {
+export const Stop = ({navigation}) => {
+
+
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.textButton}>Sair</Text>
+          <Text style={styles.textButton} onPress={()=> navigation.goBack()}>Sair</Text>
         </TouchableOpacity>
         
         <TouchableOpacity style={styles.button}>
