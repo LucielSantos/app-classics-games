@@ -23,15 +23,15 @@ export const Stop = ({navigation}) => {
 
   useEffect(() => {
     if(start){
-      setPosition(0)
       let n = 0
+      let p = Math.floor(Math.random() * 7)
       setLoop(
         setInterval(() => {
           if(n === 26) n = 0
 
           setPosition(n)
           n++
-        },times[Math.floor(Math.random() * 27)])
+        },times[p])
       )
     }else{
       clearInterval(loop)
@@ -55,7 +55,7 @@ export const Stop = ({navigation}) => {
         
         <View style={styles.containerLetter}>
           {
-            start
+            !start
             ? <LottieView source={require('../../assets/animations/doguinho.json')} autoPlay loop/>
             : <Text style={styles.letter}>{alphabet[position]}</Text>
           }
