@@ -19,6 +19,15 @@ export const Stop = () => {
         </TouchableOpacity>
       </View>
 
+      <View style={styles.body}>
+        <Text style={styles.titleBody}>Letra Selecionada:</Text>
+        
+        <View style={styles.containerLetter}>
+
+          <Text style={styles.letter}>A</Text>
+        </View>
+      </View>
+
       <View style={styles.footer}>
         <View  style={styles.containerButton}>
           <TouchableOpacity style={styles.buttonStart}>
@@ -75,6 +84,33 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#3348b5',
     padding: 10,
-    borderRadius: 10
+    borderRadius: 10,
+    elevation: 10
+  },
+  body:{
+    height: 400,
+    width: '100%',
+    borderWidth: 3,
+    borderColor: '#3348b5',
+    borderRadius: 15,
+    alignItems: 'center',
+    padding: 10,
+    overflow: 'hidden',
+  },
+  titleBody: {
+    fontFamily: 'McLaren-Regular',
+    color: 'white',
+    fontSize: 16
+  },
+  containerLetter:{
+    height: '100%',
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  letter:{
+    fontSize: 150,
+    color: 'white',
+    fontFamily: 'McLaren-Regular'
   }
 })
