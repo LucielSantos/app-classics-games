@@ -4,9 +4,8 @@ import {
   Text,
   Button,
   Image,
+  StyleSheet,
 } from 'react-native';
-
-import styles from './home.styles'
 
 import { Header, ButtonHome, Separator } from '../../components'
 
@@ -24,7 +23,7 @@ export const Home = ({
           onPress={() => navigation.navigate('TicTacToe')}
         />
         
-        <Separator color='#878787'/>
+        <Separator color='#00064d'/>
         
         <ButtonHome
           title='Stop'
@@ -34,3 +33,14 @@ export const Home = ({
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container:{
+    flex: 1,
+    height: 'auto',
+    backgroundColor: '#2525b0',
+  },
+  body:{
+    padding: 10,
+  } 
+})
