@@ -61,9 +61,9 @@ export const Stop = ({navigation}) => {
       </View>
 
       <View style={styles.footer}>
-        <View  style={styles.containerButton}>
-          <TouchableOpacity value={start} onPress={handleChangeStart} style={styles.buttonStart}>
-            <Text style={styles.textButton}>Start</Text>
+        <View  style={start ? styles.containerButtonStop : styles.containerButtonStart}>
+          <TouchableOpacity value={start} onPress={handleChangeStart} style={styles.commandButton}>
+            <Text style={styles.textButtonCommand}>{start ? 'Stop' : 'Start'}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -88,14 +88,21 @@ const styles = StyleSheet.create({
     borderRadius: 100 ,
     padding: 10,
   },
-  containerButton:{
+  containerButtonStart:{
     backgroundColor: '#0084d1',
     elevation: 5,
     borderRadius: 60,
     height: 75,
     width: 75,
   },
-  buttonStart:{
+  containerButtonStop:{
+    backgroundColor: '#d10e00',
+    elevation: 5,
+    borderRadius: 60,
+    height: 75,
+    width: 75,
+  },
+  commandButton:{
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
@@ -104,6 +111,11 @@ const styles = StyleSheet.create({
   textButton:{
     color: 'white',
     fontFamily: 'McLaren-Regular'
+  },
+  textButtonCommand:{
+    color: 'white',
+    fontFamily: 'McLaren-Regular',
+    fontSize: 18
   },
   header:{
     width: '100%',
