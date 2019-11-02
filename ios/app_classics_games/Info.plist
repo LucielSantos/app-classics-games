@@ -55,6 +55,11 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
+<<<<<<< HEAD
+=======
+		<string>Roboto-Italic.ttf</string>
+		<string>Roboto-Regular.ttf</string>
+>>>>>>> feature/splash-screen
 		<string>McLaren-Regular.ttf</string>
 	</array>
 </dict>

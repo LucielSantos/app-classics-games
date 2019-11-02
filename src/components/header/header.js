@@ -22,15 +22,15 @@ const styles = StyleSheet.create({
     height: 70,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#303030',
-    elevation: 7,
+    backgroundColor: 'black',
+    elevation: 20,
     flexDirection: 'row',
-    borderBottomLeftRadius:10,
-    borderBottomRightRadius:10,
+    borderBottomLeftRadius:20,
+    borderBottomRightRadius:20,
   },
   textHeader:{
     fontSize: 16,
-    fontWeight: 'bold',
+    fontFamily: 'McLaren-Regular',
     color: 'white',
     fontFamily: 'McLaren-Regular'
   }

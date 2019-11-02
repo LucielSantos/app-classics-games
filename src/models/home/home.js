@@ -2,10 +2,10 @@ import React from 'react';
 import {
   View,
   Text,
-  Button
+  Button,
+  Image,
+  StyleSheet,
 } from 'react-native';
-
-import styles from './home.styles'
 
 import { Header, ButtonHome, Separator } from '../../components'
 
@@ -18,19 +18,29 @@ export const Home = ({
         title='Jogos Para Jogar com a Galera!!!'
       />
       <View style={ styles.body }>
-
-
-      <ButtonHome
-        title='Jogo da Velha'
-        onPress={() => navigation.navigate('TicTacToe')}
+        <ButtonHome
+          title='Jogo da Velha'
+          onPress={() => navigation.navigate('TicTacToe')}
         />
-
-        <Separator color='#878787'/>
-      <ButtonHome
-        title='Stop'
-        onPress={() => navigation.navigate('TicTacToe')}
+        
+        <Separator color='black'/>
+        
+        <ButtonHome
+          title='Stop'
+          onPress={() => navigation.navigate('Stop')}
         />
       </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container:{
+    flex: 1,
+    height: 'auto',
+    backgroundColor: '#262626',
+  },
+  body:{
+    padding: 10,
+  } 
+})
