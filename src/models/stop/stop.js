@@ -9,6 +9,15 @@ import {
 export const Stop = () => {
   return (
     <View style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.textButton}>Sair</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.textButton}>Salvar</Text>
+        </TouchableOpacity>
+      </View>
 
       <View style={styles.footer}>
         <View  style={styles.containerButton}>
@@ -28,7 +37,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 10
+    padding: 20
   },
   footer:{
     width: 'auto',
@@ -59,5 +68,13 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between'
+  },
+  button:{
+    width: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#3348b5',
+    padding: 10,
+    borderRadius: 10
   }
 })
