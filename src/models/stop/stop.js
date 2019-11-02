@@ -55,7 +55,7 @@ export const Stop = ({navigation}) => {
         
         <View style={styles.containerLetter}>
           {
-            !start
+            start
             ? <LottieView source={require('../../assets/animations/doguinho.json')} autoPlay loop/>
             : <Text style={styles.letter}>{alphabet[position]}</Text>
           }
