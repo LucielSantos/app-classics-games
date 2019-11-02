@@ -23,7 +23,7 @@ export const Home = ({
           onPress={() => navigation.navigate('TicTacToe')}
         />
         
-        <Separator color='#00064d'/>
+        <Separator color='black'/>
         
         <ButtonHome
           title='Stop'
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   container:{
     flex: 1,
     height: 'auto',
-    backgroundColor: '#2525b0',
+    backgroundColor: '#262626',
   },
   body:{
     padding: 10,
