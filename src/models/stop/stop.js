@@ -7,6 +7,8 @@ import {
   ActivityIndicator
 } from 'react-native';
 
+import LottieView from 'lottie-react-native'
+
 import {alphabet, times} from '../../utils'
 
 export const Stop = ({navigation}) => {
@@ -15,10 +17,7 @@ export const Stop = ({navigation}) => {
   const [start, setStart] = useState(false);
   const [loop, setLoop] = useState();
 
-  const handleChangeStart =() => {
-    console.log(start)
-    setStart(!start)
-  }
+  const handleChangeStart =() => setStart(!start)
 
   useEffect(() => {
     if(start){
@@ -36,10 +35,6 @@ export const Stop = ({navigation}) => {
       clearInterval(loop)
     }
   },[start])
-
-  useEffect(() => {
-    console.log(position)
-  }, [position])
   
   return (
     <View style={styles.container}>
@@ -59,7 +54,7 @@ export const Stop = ({navigation}) => {
         <View style={styles.containerLetter}>
           {
             start
-            ? <ActivityIndicator size={80} color='#0084d1'/>
+            ? <LottieView source={require('../../assets/animations/doguinho.json')} autoPlay loop/>
             : <Text style={styles.letter}>{alphabet[position]}</Text>
           }
         </View>
