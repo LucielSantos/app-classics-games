@@ -60,22 +60,24 @@ export class Board extends Component {
         }
 
         return (
-            <View>
-                <Text>{status}</Text>
-                <View style={styles.container}>
-                    {this.renderSquare(0)}
-                    {this.renderSquare(1)}
-                    {this.renderSquare(2)}
-                </View>
-                <View style={styles.container}>
-                    {this.renderSquare(3)}
-                    {this.renderSquare(4)}
-                    {this.renderSquare(5)}
-                </View>
-                <View style={styles.container}>
-                    {this.renderSquare(6)}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
+            <View style={styles.container}>
+                <Text style={styles.status}>{status}</Text>
+                <View>
+                    <View style={styles.board}>
+                        {this.renderSquare(0)}
+                        {this.renderSquare(1)}
+                        {this.renderSquare(2)}
+                    </View>
+                    <View style={styles.board}>
+                        {this.renderSquare(3)}
+                        {this.renderSquare(4)}
+                        {this.renderSquare(5)}
+                    </View>
+                    <View style={styles.board}>
+                        {this.renderSquare(6)}
+                        {this.renderSquare(7)}
+                        {this.renderSquare(8)}
+                    </View>
                 </View>
             </View>
         );
@@ -85,6 +87,20 @@ export class Board extends Component {
 const styles = StyleSheet.create({
     container: {
         display: 'flex',
-        flexDirection: 'row'
+        alignItems: 'center',
+        height: '100%',
+        width: '100%'
+    },
+    board: {
+        display: 'flex',
+        flexDirection: 'row',
+    },
+    status: {
+        backgroundColor: 'green',
+        color: 'white',
+        borderRadius: 4,
+        fontSize: 16,
+        padding: 12,
+        margin: 16
     }
 });
