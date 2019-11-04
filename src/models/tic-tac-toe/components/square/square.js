@@ -4,7 +4,7 @@ import { TouchableOpacity, StyleSheet, Text } from 'react-native';
 
 export const Square = (props) => (
     <TouchableOpacity
-        style={props.square}
+        style={styles.square}
         onPress={() => props.onPress()}
     >
         <Text style={styles.content}>
@@ -14,7 +14,12 @@ export const Square = (props) => (
 )
 
 const styles = StyleSheet.create({
-    
+    square: {
+        display: 'flex',
+        height: 100,
+        width: 100,
+        borderColor: 'lightgray'
+    },
     content: {
         height: '100%',
         width: '100%',

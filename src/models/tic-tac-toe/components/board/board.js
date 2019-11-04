@@ -51,7 +51,6 @@ export class Board extends Component {
         return <Square
             value={this.state.squares[i]}
             onPress={() => this.handleClick(i)}
-            square={styles.square}
         />
     };
 
@@ -68,19 +67,19 @@ export class Board extends Component {
             <View style={styles.container}>
                 <Text style={styles.status}>{status}</Text>
                 <View style={styles.board}>
-                    <View style={styles.squares}>
+                    <View style={styles.squares1}>
                         {this.renderSquare(0)}
-                        {this.renderSquare(1)}
+                        <View style={styles.top}>{this.renderSquare(1)}</View>
                         {this.renderSquare(2)}
                     </View>
-                    <View style={styles.squares}>
+                    <View style={styles.squares2}>
                         {this.renderSquare(3)}
-                        {this.renderSquare(4)}
+                        <View style={styles.middle}>{this.renderSquare(4)}</View>
                         {this.renderSquare(5)}
                     </View>
-                    <View style={styles.squares}>
+                    <View style={styles.squares3}>
                         {this.renderSquare(6)}
-                        {this.renderSquare(7)}
+                        <View style={styles.bottom}>{this.renderSquare(7)}</View>
                         {this.renderSquare(8)}
                     </View>
                 </View>
@@ -93,22 +92,41 @@ export class Board extends Component {
 };
 
 const styles = StyleSheet.create({
-    square: {
-        display: 'flex',
-        height: 100,
-        width: 100,
-        borderWidth: 2,
-        borderColor: 'lightgray'
-    },
     container: {
         display: 'flex',
         alignItems: 'center',
         height: '100%',
         width: '100%'
     },
-    squares: {
+    squares1: {
+        display: 'flex',
+        flexDirection: 'row'
+    },
+    squares2: {
         display: 'flex',
         flexDirection: 'row',
+        borderTopWidth: 4,
+        borderBottomWidth: 4,
+        borderColor: 'white'
+    },
+    squares3: {
+        display: 'flex',
+        flexDirection: 'row',
+    },
+    middle: {
+        borderLeftWidth: 4,
+        borderRightWidth: 4,
+        borderColor: 'white'
+    },
+    top: {
+        borderLeftWidth: 4,
+        borderRightWidth: 4,
+        borderColor: 'white'
+    },
+    bottom: {
+        borderLeftWidth: 4,
+        borderRightWidth: 4,
+        borderColor: 'white'
     },
     board: {
         margin: 12,

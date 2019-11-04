@@ -4,7 +4,7 @@ import {
   SafeAreaView, Text
 } from 'react-native';
 
-import Routes from './routes'
+// import Routes from './routes'
 import { TicTacToe } from './models'
 
 export default function App () {
