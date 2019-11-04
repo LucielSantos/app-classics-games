@@ -31,8 +31,8 @@ export class Board extends Component {
         return null;
     }
 
-    handleRestart(){
-        this.setState({ squares: Array(9).fill(null), xIsNext: true})
+    handleRestart() {
+        this.setState({ squares: Array(9).fill(null), xIsNext: true })
     }
 
     handleClick(i) {
@@ -51,6 +51,7 @@ export class Board extends Component {
         return <Square
             value={this.state.squares[i]}
             onPress={() => this.handleClick(i)}
+            square={styles.square}
         />
     };
 
@@ -92,6 +93,13 @@ export class Board extends Component {
 };
 
 const styles = StyleSheet.create({
+    square: {
+        display: 'flex',
+        height: 100,
+        width: 100,
+        borderWidth: 2,
+        borderColor: 'lightgray'
+    },
     container: {
         display: 'flex',
         alignItems: 'center',
@@ -119,7 +127,8 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         fontSize: 16,
         padding: 12,
-        margin: 12
+        margin: 12,
+        marginTop: 60
     },
     text: {
         fontSize: 16,
