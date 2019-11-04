@@ -16,20 +16,18 @@ export const Square = (props) => (
 const styles = StyleSheet.create({
     square: {
         display: 'flex',
-        height: 80,
-        width: 80,
+        height: 100,
+        width: 100,
         borderWidth: 2,
-        borderRadius: 4,
-        margin: 4
+        borderColor: 'lightgray'
     },
     content: {
         height: '100%',
         width: '100%',
-        backgroundColor: 'red',
         textAlign: 'center',
         textAlignVertical: 'center',
         fontWeight: 'bold',
+        color: 'white',
         fontSize: 40
-        
     }
 })

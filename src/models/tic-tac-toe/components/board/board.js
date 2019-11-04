@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 import { Square } from '../../components'
 
@@ -29,6 +29,10 @@ export class Board extends Component {
             }
         }
         return null;
+    }
+
+    handleRestart(){
+        this.setState({ squares: Array(9).fill(null), xIsNext: true})
     }
 
     handleClick(i) {
@@ -62,23 +66,26 @@ export class Board extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.status}>{status}</Text>
-                <View>
-                    <View style={styles.board}>
+                <View style={styles.board}>
+                    <View style={styles.squares}>
                         {this.renderSquare(0)}
                         {this.renderSquare(1)}
                         {this.renderSquare(2)}
                     </View>
-                    <View style={styles.board}>
+                    <View style={styles.squares}>
                         {this.renderSquare(3)}
                         {this.renderSquare(4)}
                         {this.renderSquare(5)}
                     </View>
-                    <View style={styles.board}>
+                    <View style={styles.squares}>
                         {this.renderSquare(6)}
                         {this.renderSquare(7)}
                         {this.renderSquare(8)}
                     </View>
                 </View>
+                <TouchableOpacity style={styles.restart} onPress={() => this.handleRestart()}>
+                    <Text style={styles.text}>Reiniciar</Text>
+                </TouchableOpacity>
             </View>
         );
     };
@@ -91,16 +98,31 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%'
     },
-    board: {
+    squares: {
         display: 'flex',
         flexDirection: 'row',
     },
+    board: {
+        margin: 12,
+        padding: 12
+    },
     status: {
-        backgroundColor: 'green',
+        backgroundColor: '#0084d1',
         color: 'white',
         borderRadius: 4,
         fontSize: 16,
         padding: 12,
-        margin: 16
+        margin: 12
+    },
+    restart: {
+        backgroundColor: '#0084d1',
+        borderRadius: 4,
+        fontSize: 16,
+        padding: 12,
+        margin: 12
+    },
+    text: {
+        fontSize: 16,
+        color: 'white'
     }
 });

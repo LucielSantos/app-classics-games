@@ -5,7 +5,7 @@ import { Board } from './components'
 export class TicTacToe extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Board />
       </View>
     );
@@ -13,5 +13,7 @@ export class TicTacToe extends Component {
 }
 
 const styles = StyleSheet.create({
-
+  container: {
+    backgroundColor: '#262626',
+  }
 })
