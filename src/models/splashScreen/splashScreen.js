@@ -6,8 +6,11 @@ import {
 
 import LottieView from 'lottie-react-native'
 
-export const SplashScreen = ({navigation}) => {
-  const handleFinish = () => navigation.navigate('Home')
+export const SplashScreen = ({
+  navigation = Object,
+  handleFinish = Function
+}) => {
+
   return (
     <View style={styles.container}>
       <LottieView
