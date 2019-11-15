@@ -41,6 +41,13 @@ export const Home = ({
             onPress={() => navigation.navigate('Stop')}
           />
 
+          <Separator color='black'/>
+
+          <ButtonHome
+            title='Jogo da Forca'
+            onPress={() => navigation.navigate('Hangman')}
+          />
+
           <View style={styles.animationContainer}>
             <View style={styles.animation}>
               <LottieView source={require('../../assets/animations/rocket.json')}  autoPlay loop/>
@@ -70,6 +77,6 @@ const styles = StyleSheet.create({
   },
   animation:{
    height: '100%',
-   width: 300, 
+   width: 200, 
   }
 })

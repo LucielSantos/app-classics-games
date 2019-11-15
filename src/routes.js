@@ -6,6 +6,7 @@ import {
   TicTacToe,
   Stop,
   SplashScreen,
+  Hangman,
 } from './models'
 
 export default createAppContainer(
@@ -15,6 +16,7 @@ export default createAppContainer(
       TicTacToe,
       Stop,
       SplashScreen,
+      Hangman
     },
     {
       headerMode: 'none',
