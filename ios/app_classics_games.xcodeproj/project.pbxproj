@@ -15,7 +15,9 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* app_classics_gamesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* app_classics_gamesTests.m */; };
-		9763954398AB40CABE49C507 /* McLaren-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66EF9846612A4F2CB91F2F24 /* McLaren-Regular.ttf */; };
+		8B7D90F7453242AEB386AB2E /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E0F0BEAF12346C183EAEF16 /* Roboto-Italic.ttf */; };
+		805F42E5596F492A8938970C /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A29BBD7FBB534444833FB42E /* Roboto-Regular.ttf */; };
+		3C79C1E283BB4ADABE65CD22 /* McLaren-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 764888908A364226B2F12346 /* McLaren-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +53,9 @@
 		2D02E4901E0B4A5D006451C7 /* app_classics_games-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "app_classics_games-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		66EF9846612A4F2CB91F2F24 /* McLaren-Regular.ttf */ = {isa = PBXFileReference; name = "McLaren-Regular.ttf"; path = "../assets/fonts/McLaren-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1E0F0BEAF12346C183EAEF16 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; name = "Roboto-Italic.ttf"; path = "../assets/fonts/Roboto-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A29BBD7FBB534444833FB42E /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		764888908A364226B2F12346 /* McLaren-Regular.ttf */ = {isa = PBXFileReference; name = "McLaren-Regular.ttf"; path = "../assets/fonts/McLaren-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +145,7 @@
 				00E356EF1AD99517003FC87E /* app_classics_gamesTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				9437A4F2BB2549079B9F38B3 /* Resources */,
+				7B99FDB0C6DE4F349B22CE77 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -159,10 +163,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9437A4F2BB2549079B9F38B3 /* Resources */ = {
+		7B99FDB0C6DE4F349B22CE77 /* Resources */ = {
 			isa = "PBXGroup";
 			children = (
-				66EF9846612A4F2CB91F2F24 /* McLaren-Regular.ttf */,
+				1E0F0BEAF12346C183EAEF16 /* Roboto-Italic.ttf */,
+				A29BBD7FBB534444833FB42E /* Roboto-Regular.ttf */,
+				764888908A364226B2F12346 /* McLaren-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -304,7 +310,9 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				9763954398AB40CABE49C507 /* McLaren-Regular.ttf in Resources */,
+				8B7D90F7453242AEB386AB2E /* Roboto-Italic.ttf in Resources */,
+				805F42E5596F492A8938970C /* Roboto-Regular.ttf in Resources */,
+				3C79C1E283BB4ADABE65CD22 /* McLaren-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

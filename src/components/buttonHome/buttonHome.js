@@ -11,7 +11,7 @@ export const ButtonHome = ({
       {...props}
       style={styles.containerButton}
     >
-      <Text style={styles.text}>{title.toUpperCase()}</Text>
+      <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );
 }
@@ -26,6 +26,6 @@ const styles = StyleSheet.create({
   text:{
     color: 'white',
     fontSize: 18,
-    fontWeight: 'bold',    
+    fontFamily: 'McLaren-Regular'
   }
 })

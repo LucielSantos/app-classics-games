@@ -3,7 +3,10 @@ import { createStackNavigator } from 'react-navigation-stack'
 
 import {
   Home,
-  TicTacToe
+  TicTacToe,
+  Stop,
+  SplashScreen,
+  Hangman,
 } from './models'
 
 export default createAppContainer(
@@ -11,6 +14,9 @@ export default createAppContainer(
     {
       Home,
       TicTacToe,
+      Stop,
+      SplashScreen,
+      Hangman
     },
     {
       headerMode: 'none',
