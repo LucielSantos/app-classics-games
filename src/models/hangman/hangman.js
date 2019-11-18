@@ -12,6 +12,7 @@ import Icon  from "react-native-vector-icons/MaterialIcons";
 export const Hangman = ({navigate}) => {
   const [step, setStep] = useState(1)
   const [word, setWord] = useState('')
+  const [letter, setLetter] = useState('')
   const [arrayWord, setArrayWord] = useState('')
 
   const handleBeginGame = () => 
@@ -20,6 +21,13 @@ export const Hangman = ({navigate}) => {
   const onChangeWord = text =>
     setWord(text)
 
+  const onChangeLetter = text =>
+    setLetter(text.toUpperCase())
+
+  const onSubmit = text =>{
+    console.log(letter)
+  }
+
   const handleBack = () =>
     step === 1 ? navigate.goBack() : (setStep(1), setWord(''))
 
@@ -27,7 +35,7 @@ export const Hangman = ({navigate}) => {
     console.log('Salvando')
 
   const prepareWord = () => {
-    const arrayWord = word.split('')
+    const arrayWord = word.toUpperCase().split('')
     const arrayObject = arrayWord.map(letter => ({letter, status: true}))
 
     setArrayWord(arrayObject)
@@ -92,11 +100,17 @@ export const Hangman = ({navigate}) => {
                 style={styles.inputLetter}
                 placeholder='Insira uma Letra'
                 placeholderTextColor='#757575'
+                value={letter}
+                onChangeText={onChangeLetter}
+                maxLength={1}
               />
 
-              <TouchableOpacity style={styles.containerEnter}>
-                <Text style={styles.enterText}>Enter</Text>
-              </TouchableOpacity>
+              {
+                letter.length > 0 &&
+                <TouchableOpacity style={styles.containerEnter} onPress={onSubmit}>
+                  <Icon name='send' size={25} color='#3348b5' />
+                </TouchableOpacity>
+              }
             </View>
           </>
         }
@@ -185,7 +199,7 @@ const styles = StyleSheet.create({
   },
   letter:{
     color: 'white',
-    fontSize: 50,
+    fontSize: 40,
     marginHorizontal: 10,
   },
   containerLetters:{
@@ -198,8 +212,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   footer:{
+    width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#262626',
   },
   inputLetter:{
     width: '100%',
@@ -217,10 +234,6 @@ const styles = StyleSheet.create({
   containerEnter:{
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#3348b5',
-    padding: 10,
-    borderRadius: 10,
-    elevation: 10,
     marginLeft: 50,
   }
 })
