@@ -5,7 +5,8 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
-  StyleSheet
+  StyleSheet,
+  Keyboard
 } from 'react-native';
 import Icon  from "react-native-vector-icons/MaterialIcons";
 
@@ -24,8 +25,14 @@ export const Hangman = ({navigate}) => {
   const onChangeLetter = text =>
     setLetter(text.toUpperCase())
 
-  const onSubmit = text =>{
-    console.log(letter)
+  const onSubmit = () =>{
+    setArrayWord([
+      ...arrayWord.map(obj => (
+        obj.letter === letter ? {...obj, status: true} : obj
+      ))
+    ])
+    Keyboard.dismiss()
+    setLetter('')
   }
 
   const handleBack = () =>
@@ -36,7 +43,7 @@ export const Hangman = ({navigate}) => {
 
   const prepareWord = () => {
     const arrayWord = word.toUpperCase().split('')
-    const arrayObject = arrayWord.map(letter => ({letter, status: true}))
+    const arrayObject = arrayWord.map(letter => ({letter, status: false}))
 
     setArrayWord(arrayObject)
   }
