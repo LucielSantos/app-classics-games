@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -10,13 +10,23 @@ import {
 } from 'react-native';
 import Icon  from "react-native-vector-icons/MaterialIcons";
 
-export const Hangman = ({navigate}) => {
+import {hangmanImg} from '../../assets/images/hangmanImg'
+
+export const Hangman = ({navigation }) => {
   const [step, setStep] = useState(1)
   const [word, setWord] = useState('')
   const [letter, setLetter] = useState('')
   const [arrayWord, setArrayWord] = useState('')
+  const [hangman, setHangman] = useState(0)
+  const [dead, setDead] = useState(false)
+  const [end, setEnd] = useState(false)
 
-  const handleBeginGame = () => 
+  useEffect(() => {
+    setHangman(0)
+    
+  }, [step])
+
+  const handleBeginGame = ({navigation}) => 
     step === 1 && (prepareWord(), setStep(2))
 
   const onChangeWord = text =>
@@ -26,17 +36,37 @@ export const Hangman = ({navigate}) => {
     setLetter(text.toUpperCase())
 
   const onSubmit = () =>{
+    let match = true
+    let isEnd = true
     setArrayWord([
-      ...arrayWord.map(obj => (
-        obj.letter === letter ? {...obj, status: true} : obj
-      ))
+      ...arrayWord.map(obj => {
+        let data = {}
+        
+        if(obj.letter === letter){
+          match = false
+          data = {...obj, status: true}
+        }else{
+          data = obj
+        }
+
+        if(data.status === false) {
+          isEnd = false
+        }
+        return data
+      })
     ])
+
     Keyboard.dismiss()
     setLetter('')
+    const n = hangman+1 
+    match ? setHangman(n) : ''
+    console.log(hangman)
+    hangman === 5 ? setDead(true) : ''
+    setEnd(isEnd)
   }
 
   const handleBack = () =>
-    step === 1 ? navigate.goBack() : (setStep(1), setWord(''))
+    step === 1 ? navigation.goBack() : (setStep(1), setWord(''))
 
   const handleSave = () =>
     console.log('Salvando')
@@ -49,15 +79,19 @@ export const Hangman = ({navigate}) => {
   }
 
   return (
+    <>
     <View style={styles.container}>
       <View style={styles.containerNavigate}>
         <TouchableOpacity style={styles.button} onPress={handleBack}>
           <Text style={styles.textButton}>{ step === 1 ? 'Sair' :  'Voltar' }</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button} onPress={handleSave} >
-          <Text style={styles.textButton}>Salvar</Text>
-        </TouchableOpacity>
+        {
+          step === 2 &&
+            <TouchableOpacity style={styles.button} onPress={handleSave} >
+              <Text style={styles.textButton}>Salvar</Text>
+            </TouchableOpacity>
+        }
       </View>
 
       <Text style={styles.title}>{ step === 1 ? 'Jogo da Forca' : 'O Jogo Começou! ;)'}</Text>
@@ -88,7 +122,7 @@ export const Hangman = ({navigate}) => {
             <View style={styles.hangmanContainer}>
               <Image
                 style={styles.img}
-                source={require('../../assets/images/hangman.png')}
+                source={hangmanImg[hangman]}
               />
               <View style={styles.containerLetters}>
                 {
@@ -121,8 +155,25 @@ export const Hangman = ({navigate}) => {
             </View>
           </>
         }
-      </View>
     </View>
+    </View>
+    {
+      dead &&
+      <View style={styles.containerDead}>
+        <Image
+          style={styles.imgDead}
+          source={hangmanImg.executioner}
+        />
+      </View>
+    }
+
+    {
+      end &&
+      <View style={styles.containerDead}>
+        <Text style={styles.textEnd}>Você Ganhou!!</Text>
+      </View>
+    }
+    </>
   );
 }
 
@@ -200,7 +251,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20
   },  
   img:{
-    width: '70%',
+    width: '60%',
     height: 200,
     resizeMode: 'stretch',
   },
@@ -242,5 +293,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft: 50,
+  },
+  containerDead:{
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  imgDead:{
+    height: 400,
+    width: 360,
+    resizeMode: 'stretch',
+  },
+  textEnd:{
+    color: 'white',
+    fontSize: 60,
+    fontFamily: 'McLaren-Regular',
+    textAlign: 'center'
   }
 })
