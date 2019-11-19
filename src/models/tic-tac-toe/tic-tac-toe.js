@@ -1,15 +1,19 @@
-import React from 'react';
-import {
-  View,
-  Text,
-} from 'react-native';
+import React, { Component } from 'react';
+import { View, StyleSheet } from 'react-native';
 
-export const TicTacToe = () => {
-  return (
-    <View>
-      <Text>
-        Tic Tac Toe
-      </Text>
-    </View>
-  );
+import { Board } from './components'
+export class TicTacToe extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Board />
+      </View>
+    );
+  }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#262626',
+  }
+})
