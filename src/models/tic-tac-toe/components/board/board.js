@@ -85,8 +85,8 @@ export class Board extends Component {
                         {this.renderSquare(8)}
                     </View>
                 </View>
-                <TouchableOpacity style={styles.restart}>
-                    <Text style={styles.text} onPress={() => this.handleBack()}>Sair</Text>
+                <TouchableOpacity style={styles.restart} onPress={() => this.handleBack()}>
+                    <Text style={styles.text} >Sair</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.restart} onPress={() => this.handleRestart()}>
                     <Text style={styles.text}>Reiniciar</Text>
