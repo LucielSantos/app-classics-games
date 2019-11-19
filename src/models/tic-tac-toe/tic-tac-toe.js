@@ -6,7 +6,7 @@ export class TicTacToe extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Board />
+        <Board navigation={this.props.navigation}/>
       </View>
     );
   }

@@ -54,6 +54,8 @@ export class Board extends Component {
         />
     };
 
+    handleBack = () => this.props.navigation.goBack();
+
     render() {
         const winner = this.calculateWinner(this.state.squares);
         let status;
@@ -83,6 +85,9 @@ export class Board extends Component {
                         {this.renderSquare(8)}
                     </View>
                 </View>
+                <TouchableOpacity style={styles.restart}>
+                    <Text style={styles.text} onPress={() => this.handleBack()}>Sair</Text>
+                </TouchableOpacity>
                 <TouchableOpacity style={styles.restart} onPress={() => this.handleRestart()}>
                     <Text style={styles.text}>Reiniciar</Text>
                 </TouchableOpacity>
