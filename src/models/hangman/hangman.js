@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import Icon  from "react-native-vector-icons/MaterialIcons";
 import AsyncStorage from '@react-native-community/async-storage'
+import LottieView from 'lottie-react-native'
 
 import {hangmanImg} from '../../assets/images/hangmanImg'
 
@@ -218,8 +219,9 @@ export const Hangman = ({navigation }) => {
     }
 
     {
-      end &&
+      !end &&
       <View style={styles.containerDead}>
+        <LottieView source={require('../../assets/animations/firework.json')} autoPlay loop/>
         <Text style={styles.textEnd}>Você Ganhou!!</Text>
       </View>
     }
