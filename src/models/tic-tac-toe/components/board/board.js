@@ -87,17 +87,20 @@ export const Board = ({ navigation }) => {
     // Início
     <View style={styles.container}>
       <Text style={styles.status}>{status}</Text>
+
       <View style={styles.board}>
         <View style={styles.squares1}>
           {renderSquare(0)}
           <View style={styles.top}>{renderSquare(1)}</View>
           {renderSquare(2)}
         </View>
+
         <View style={styles.squares2}>
           {renderSquare(3)}
           <View style={styles.middle}>{renderSquare(4)}</View>
           {renderSquare(5)}
         </View>
+
         <View style={styles.squares3}>
           {renderSquare(6)}
           <View style={styles.bottom}>{renderSquare(7)}</View>
@@ -107,17 +110,19 @@ export const Board = ({ navigation }) => {
       {/* Fim */}
 
       {/* Início */}
-      <TouchableOpacity
-        style={styles.restart}
-        onPress={() => this.handleBack()}>
-        <Text style={styles.text}>Salvar e sair</Text>
-      </TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => this.handleBack()}>
+          <Text style={styles.text}>Salvar e sair</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.restart}
-        onPress={() => handleRestart()}>
-        <Text style={styles.text}>Reiniciar</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => handleRestart()}>
+          <Text style={styles.text}>Reiniciar</Text>
+        </TouchableOpacity>
+      </View>
       {/* Fim */}
 
     </View>
@@ -130,6 +135,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: '100%',
     width: '100%',
+    fontFamily: 'McLaren-Regular'
+  },
+  buttonContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center'
   },
   squares1: {
     display: 'flex',
@@ -162,18 +173,19 @@ const styles = StyleSheet.create({
     borderColor: 'white',
   },
   board: {
-    margin: 12,
+    margin: 40,
     padding: 12,
   },
   status: {
+    fontFamily: 'McLaren-Regular',
     backgroundColor: '#0084d1',
     color: 'white',
     borderRadius: 4,
     fontSize: 16,
     padding: 12,
-    margin: 12,
+    margin: 28,
   },
-  restart: {
+  button: {
     backgroundColor: '#0084d1',
     borderRadius: 4,
     fontSize: 16,
@@ -184,5 +196,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     color: 'white',
+    padding: 4,
+    fontFamily: 'McLaren-Regular'
   },
 });

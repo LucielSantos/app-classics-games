@@ -14,5 +14,6 @@ export const TicTacToe = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#262626',
+    fontFamily: 'McLaren-Regular'
   }
 });
