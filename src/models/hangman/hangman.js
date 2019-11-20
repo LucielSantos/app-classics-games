@@ -89,8 +89,6 @@ export const Hangman = ({navigation }) => {
       })
     ])
 
-    console.log(match)
-
     Keyboard.dismiss()
     setLetter('')
     const n = hangman+1 
