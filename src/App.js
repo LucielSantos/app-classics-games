@@ -10,8 +10,8 @@ import { TicTacToe } from './models';
 export default function App () {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      {/* <Routes /> */}
-      <TicTacToe />
+      <Routes />
+      {/* <TicTacToe /> */}
     </SafeAreaView>
   );
 };

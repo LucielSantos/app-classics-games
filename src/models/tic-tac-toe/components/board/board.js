@@ -1,15 +1,25 @@
-import React, {Component, useEffect, useState} from 'react';
-import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+// import AsyncStorage from '@react-native-community/async-storage';
+
+import { Square } from '../../components';
 import AsyncStorage from '@react-native-community/async-storage';
-import {Square} from '../../components';
 
+export const Board = ({ navigation }) => {
+  const defaultSquare = Array(9).fill(null);
 
-const [square, setSquare] = useState([]);
-const [playerX, setPlayerX] = useState(true);
+  const [square, setSquare] = useState(defaultSquare);
+  const [player, setPlayer] = useState(true);
 
-export class Board extends Component {
-  
-  calculateWinner(squares) {
+  useEffect(() => {
+    const load = async () => {
+      setSquare(await AsyncStorage.getItem('square').then(value => JSON.parse(value)));
+      setPlayer(await AsyncStorage.getItem('player').then(value => JSON.parse(value)));
+    };
+    load();
+  }, []);
+
+  calculateWinner = (param) => {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -23,91 +33,96 @@ export class Board extends Component {
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (
-        squares[a] &&
-        squares[a] === squares[b] &&
-        squares[a] === squares[c]
+        param[a] &&
+        param[a] === param[b] &&
+        param[a] === param[c]
       ) {
-        return squares[a];
+        return param[a];
       }
     }
     return null;
   };
 
-  handleRestart() {
-    this.setState({squares: Array(9).fill(null), xIsNext: true});
+  handleRestart = () => {
+    setSquare(defaultSquare)
+    setPlayer(true)
   };
 
-  handleClick(i){
-    const squares = this.state.squares.slice();
-    if (this.calculateWinner(squares) || squares[i]) {
+  handleClick = async (i) => {
+    const param = square.slice();
+    if (calculateWinner(param) || param[i]) {
       return;
-    }
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    };
 
-    this.setState({
-      squares: squares,
-      xIsNext: !this.state.xIsNext,
-    });
+    param[i] = player ? 'X' : 'O';
+
+    setSquare(param);
+    setPlayer(!player);
   };
 
-  renderSquare(i) {
-    return (
-      <Square
-        value={this.state.squares[i]}
-        onPress={() => this.handleClick(i)}
-      />
-    );
+  renderSquare = (i) => {
+    return (<Square
+      value={square[i]}
+      onPress={() => handleClick(i)}
+    />);
+
   };
 
   handleBack = async () => {
-    await AsyncStorage.setItem('quadrado', JSON.stringify(this.state.squares))
-    console.log(await AsyncStorage.getItem('quadrado').then((value) => JSON.parse(value)))
-    // this.props.navigation.goBack();
+    navigation.goBack();
+    await AsyncStorage.setItem('player', JSON.stringify(player));
+    await AsyncStorage.setItem('square', JSON.stringify(square));
+
+  };
+  const winner = calculateWinner(square);
+  let status;
+  if (winner) {
+    status = `Vencedor: ${winner}`;
+  } else {
+    status = `Próximo jogador: ${player ? 'X' : 'O'}`;
   };
 
-  render() {
-    const winner = this.calculateWinner(this.state.squares);
-    let status;
-    if (winner) {
-      status = `Vencedor: ${winner}`;
-    } else {
-      status = `Próximo jogador: ${this.state.xIsNext ? 'X' : 'O'}`;
-    }
+  return (
 
-    return (
-      <View style={styles.container}>
-        <Text style={styles.status}>{status}</Text>
-        <View style={styles.board}>
-          <View style={styles.squares1}>
-            {this.renderSquare(0)}
-            <View style={styles.top}>{this.renderSquare(1)}</View>
-            {this.renderSquare(2)}
-          </View>
-          <View style={styles.squares2}>
-            {this.renderSquare(3)}
-            <View style={styles.middle}>{this.renderSquare(4)}</View>
-            {this.renderSquare(5)}
-          </View>
-          <View style={styles.squares3}>
-            {this.renderSquare(6)}
-            <View style={styles.bottom}>{this.renderSquare(7)}</View>
-            {this.renderSquare(8)}
-          </View>
+    // Início
+    <View style={styles.container}>
+      <Text style={styles.status}>{status}</Text>
+      <View style={styles.board}>
+        <View style={styles.squares1}>
+          {renderSquare(0)}
+          <View style={styles.top}>{renderSquare(1)}</View>
+          {renderSquare(2)}
         </View>
-        <TouchableOpacity
-          style={styles.restart}
-          onPress={() => this.handleBack()}>
-          <Text style={styles.text}>Sair</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.restart}
-          onPress={() => this.handleRestart()}>
-          <Text style={styles.text}>Reiniciar</Text>
-        </TouchableOpacity>
+        <View style={styles.squares2}>
+          {renderSquare(3)}
+          <View style={styles.middle}>{renderSquare(4)}</View>
+          {renderSquare(5)}
+        </View>
+        <View style={styles.squares3}>
+          {renderSquare(6)}
+          <View style={styles.bottom}>{renderSquare(7)}</View>
+          {renderSquare(8)}
+        </View>
       </View>
-    );
-  }
-}
+      {/* Fim */}
+
+      {/* Início */}
+      <TouchableOpacity
+        style={styles.restart}
+        onPress={() => this.handleBack()}>
+        <Text style={styles.text}>Salvar e sair</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.restart}
+        onPress={() => handleRestart()}>
+        <Text style={styles.text}>Reiniciar</Text>
+      </TouchableOpacity>
+      {/* Fim */}
+
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
