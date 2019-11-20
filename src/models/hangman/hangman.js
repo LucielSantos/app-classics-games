@@ -219,7 +219,7 @@ export const Hangman = ({navigation }) => {
     }
 
     {
-      !end &&
+      end &&
       <View style={styles.containerDead}>
         <LottieView source={require('../../assets/animations/firework.json')} autoPlay loop/>
         <Text style={styles.textEnd}>Você Ganhou!!</Text>
