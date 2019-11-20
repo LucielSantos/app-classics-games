@@ -12,6 +12,7 @@ import LottieView from 'lottie-react-native'
 import {alphabet, times} from '../../utils'
 
 export const Stop = ({navigation}) => {
+  const Data = new Date
 
   const [position, setPosition] = useState(0);
   const [start, setStart] = useState(false);
@@ -31,7 +32,7 @@ export const Stop = ({navigation}) => {
 
           setPosition(n)
           n++
-        },times[Math.floor(Math.random() * 6)])
+        },Data.getMilliseconds())
       )
     }else{
       clearInterval(loop)
@@ -43,10 +44,6 @@ export const Stop = ({navigation}) => {
       <View style={styles.header}>
         <TouchableOpacity style={styles.button} onPress={handleBack}>
           <Text style={styles.textButton}>Sair</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.textButton}>Salvar</Text>
         </TouchableOpacity>
       </View>
 
