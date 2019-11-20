@@ -68,15 +68,15 @@ export const Hangman = ({navigation }) => {
   const onChangeLetter = text =>
     setLetter(text.toUpperCase())
 
-  const onSubmit = () =>{
-    let match = true
+  const onSubmit = async () =>{
+    let match = false
     let isEnd = true
     setArrayWord([
       ...arrayWord.map(obj => {
         let data = {}
         
         if(obj.letter === letter){
-          match = false
+          match = true
           data = {...obj, status: true}
         }else{
           data = obj
@@ -92,9 +92,16 @@ export const Hangman = ({navigation }) => {
     Keyboard.dismiss()
     setLetter('')
     const n = hangman+1 
-    match ? setHangman(n) : ''
-    hangman === 5 ? setDead(true) : ''
+    !match ? setHangman(n) : ''
+    hangman === 6 ? setDead(true) : ''
     setEnd(isEnd)
+
+    if(dead){
+      await AsyncStorage.removeItem('dataHangman')
+    }
+    if(isEnd){
+      await AsyncStorage.removeItem('dataHangman')
+    }
   }
 
   const handleBack = async () =>
