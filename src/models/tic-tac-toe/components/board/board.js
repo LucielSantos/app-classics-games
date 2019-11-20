@@ -13,7 +13,8 @@ export const Board = ({ navigation }) => {
 
   useEffect(() => {
     const load = async () => {
-      setSquare(await AsyncStorage.getItem('square').then(value => JSON.parse(value)));
+      const storageSquare = await AsyncStorage.getItem('square').then(value => JSON.parse(value))
+      storageSquare ? setSquare(storageSquare) : '';
       setPlayer(await AsyncStorage.getItem('player').then(value => JSON.parse(value)));
     };
     load();
@@ -74,6 +75,7 @@ export const Board = ({ navigation }) => {
     await AsyncStorage.setItem('square', JSON.stringify(square));
 
   };
+  console.log(square)
   const winner = calculateWinner(square);
   let status;
   if (winner) {
@@ -113,7 +115,7 @@ export const Board = ({ navigation }) => {
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => this.handleBack()}>
+          onPress={() => handleBack()}>
           <Text style={styles.text}>Salvar e sair</Text>
         </TouchableOpacity>
 
